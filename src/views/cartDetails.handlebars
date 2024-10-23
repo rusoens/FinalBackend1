@@ -1,0 +1,29 @@
+{{!-- No necesitas el DOCTYPE, html, head o body aquí --}}
+<link rel="stylesheet" href="/css/style.css">
+<h1  class="tipografia">Cart Details</h1>
+
+{{#if cart}}
+<div class="cartsDetails1">
+    <h2 class="cart-id2">Cart ID: {{cart._id}}</h2>
+    <p class="total-products2">Total Products: {{cart.products.length}}</p>
+    <ul class="products-list2">
+        {{#each cart.products}}
+        <hr>
+        <li class="product-item2">
+            <p class="product-title2">Title: {{this.product.title}}</p>
+            <p class="product-quantity2">Quantity: {{this.quantity}}</p>
+            <p class="product-price2">Price: ${{this.product.price}}</p>
+            <p class="product-id2">Product ID: {{this.product._id}}</p>
+        </li>
+        {{/each}}
+    </ul>
+    <hr>
+    <p class="cart-total2">Total Price: ${{calculateTotalPrice cart.products}}</p>
+    <hr>
+</div>
+<br>
+{{else}}
+<p class="no-products2">No products in this cart</p>
+{{/if}}
+
+<a href="/carts" class="btnBack2Carts" id="add2Cart">Back to carts</a>

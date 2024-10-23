@@ -1,0 +1,73 @@
+<h1 class="tipografia">Products</h1>
+{{#if productos.length}}
+<ul>
+    {{#each productos}}
+    <div class="prodList">
+        <h2>{{title}}</h2>
+        <img src="{{this.img}}" alt="{{this.title}}" class="productImage">
+        <p>{{this._id}}</p>
+        <p class="categorySte">{{description}}</p>
+        <p>Price: ${{price}}</p>
+        <p>Category: {{category}}</p>
+        <button class="pointer" id="add2Cart" onclick="window.open('/products/{{this._id}}', '_blank')">Ver Mas</button><br>
+
+        <!-- Formulario para agregar al carrito -->
+        <form action="/api/carts/addProduct" method="POST" class="add-to-cart-form">
+            <input type="hidden" name="productId" value="{{this._id}}">
+            <label for="cartId">Select Cart:</label>
+            <select name="cartId" required>
+                <option value="">Loading...</option>
+            </select>
+            <button type="submit">Add to Cart</button>
+        </form>
+
+        <br><br><br>
+    </div>
+    {{/each}}
+</ul>
+{{else}}
+<p>No products found on this page.</p>
+{{/if}}
+
+<a href="/" class="pointer songoro" id="add2Cart">Volver al Inicio</a>
+
+<br>
+<br>
+
+<hr>
+<div class="pagination-container">
+    {{#if hasPrevPage}}
+    <a href="/products?page={{prevPage}}" class="prev-page">Previous</a>
+    {{/if}}
+    {{#if hasNextPage}}
+    <a href="/products?page={{nextPage}}" class="next-page">Next</a>
+    {{/if}}
+    <br>
+    <div>
+        <p class="textPag">Page {{currentPage}} of {{totalPages}}</p>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const selectElements = document.querySelectorAll('select[name="cartId"]');
+
+        selectElements.forEach(select => {
+            fetch('/api/carts')
+                .then(response => response.json())
+                .then(carts => {
+                    console.log('Carts received:', carts); // Verifica que los datos estén llegando
+                    if (carts.length > 0) {
+                        select.innerHTML = carts.map(cart => `<option value="${cart.id}">Cart ID: ${cart.id}</option>`).join('');
+                    } else {
+                        select.innerHTML = '<option value="">No carts available</option>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching carts', error);
+                    select.innerHTML = '<option value="">Failed to load carts</option>';
+                });
+        });
+    });
+
+</script>

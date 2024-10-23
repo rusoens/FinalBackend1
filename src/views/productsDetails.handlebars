@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/css/style.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <h1 class="tipografia">Product Details</h1>
+</head>
+
+<body>
+    <div class="cartsDetails1">
+        <h2>{{product.title}}</h2>
+        <p class="detail-products02">{{product.description}}</p>
+        <p>Price: ${{product.price}}</p>
+        <p>Category: {{product.category}}</p>
+        <p>Stock: {{product.stock}}</p>
+        {{#if product.img}}
+        <img src="{{product.img}}" alt="{{product.title}}" style="max-width: 600px;">
+        {{/if}}
+        {{#each product.thumbnails}}
+        <img src="{{this}}" alt="Thumbnail" style="max-width: 100px;">
+        {{/each}}
+    </div>
+    <div class="btnbck">
+        <a href="/products" class="btnBtp pointer" id="add2Cart">Back to Products</a>
+    </div>
+    <a href="/" class="pointer songoro" id="add2Cart">Volver al Inicio</a>
+</body>
+
+</html>

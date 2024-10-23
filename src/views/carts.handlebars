@@ -1,0 +1,30 @@
+{{!-- No necesitas el DOCTYPE, html, head o body aquí --}}
+<h1  class="tipografia">Todos los Carritos</h1>
+
+<h4 class="subtitulo0">AL hacer click en el Cart ID te llevará a una pestaña nueva con la visual del Carrito.</h4>
+
+{{#if carts.length}}
+    <div class="carts-container0">
+        {{#each carts}}
+            <div class="cart-item0">
+                <a href="/carts/{{id}}" class="cart-id-link0 remove0" target="_blank">
+                    <h2 class="cart-id0">Cart ID: {{id}}</h2>
+                </a>
+                <p class="total-quantity0">Total Products: {{totalQuantity}}</p>
+                <div class="products-list0">
+                    {{#each products}}
+                        <div class="product-item0">
+                            <p class="product-id0">Product ID: {{id}}</p>
+                            <p class="product-title0">Title: {{title}}</p>
+                            <p class="product-price0">Price: ${{price}}</p>
+                            <p class="product-quantity0">Quantity: {{quantity}}</p>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        {{/each}}
+    </div>
+{{else}}
+    <p class="no-carts0">No carts found</p>
+{{/if}}
+<a href="/" class="pointer songoro" id="add2Cart">Volver al Inicio</a>

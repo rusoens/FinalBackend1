@@ -1,0 +1,130 @@
+{{!-- No necesitas el DOCTYPE, html, head o body aquí --}}
+<h1 class="tipografia">Toy-Toy Shop</h1>
+<hr>
+<!-- Ícono del carrito -->
+{{!-- <a href="/carts">
+    <img src="/img/carrito.png" alt="Carrito" style="width: 40px; height: 40px;">
+</a> --}}
+<br>
+<div class="memin01">
+    <div class="button-container01">
+        <!-- Botón 1 -->
+        <div class="button-wrapper01">
+            <button class="main-button01">Productos</button>
+            <ul class="options01">
+                <li><button onclick="window.open('api/products')">Code Version</button></li>
+                <li><button onclick="window.open('/products')">Live Version</button></li>
+            </ul>
+        </div>
+
+        <!-- Botón 2 -->
+        <div class="button-wrapper01">
+            <button class="main-button01">Carrito</button>
+            <ul class="options01">
+                <li><button onclick="window.open('api/carts', '_blank')">Code Version</button></li>
+                <li><button onclick="window.open('/carts', '_blank')">Live Version</button></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container guide">
+    <h1>Guía de Uso de la API de Productos</h1>
+    <p>Bienvenido a la guía de uso de la API de Productos. Aquí encontrarás ejemplos de cómo utilizar los parámetros
+        de
+        consulta en tus solicitudes.</p>
+    <hr>
+    <h2>Parámetros de Consulta</h2>
+    <p>
+        A continuación, se presentan ejemplos de cómo utilizar los parámetros de consulta más comunes:
+    </p>
+
+    <ul>
+        <li>
+            Ejemplo de uso del parámetro <code>limit</code> con un valor de 5:
+            <a href="http://localhost:8080/api/products?limit=5" target="_blank">Ver ejemplo</a>
+        </li>
+        <li>
+            Ejemplo de uso del parámetro <code>page</code> con un valor de 2 y <code>limit</code> fijo en 4:
+            <a href="http://localhost:8080/api/products?page=2&limit=4" target="_blank">Ver ejemplo en Código</a>
+            <a href="http://localhost:8080/products?page=2&limit=4" target="_blank">Ver ejemplo en Web</a>
+            <p>Nota: Si no llegase a haber productos en la página que visita, verá un mensaje indicando que no hay
+                productos.</p>
+        </li>
+        <li>
+            Ejemplo de uso del parámetro <code>sort</code> para ordenar de manera ascendente:
+            <a href="http://localhost:8080/api/products?sort=asc" target="_blank">Ver ejemplo en Código</a>
+            <a href="http://localhost:8080/products?sort=asc" target="_blank">Ver ejemplo en Web</a>
+        </li>
+        <li>
+            Ejemplo de uso del parámetro <code>sort</code> para ordenar de manera descendente:
+            <a href="http://localhost:8080/api/products?sort=desc" target="_blank">Ver ejemplo en Código</a>
+            <a href="http://localhost:8080/products?sort=desc" target="_blank">Ver ejemplo en Web</a>
+        </li>
+    </ul>
+    <hr>
+    <br>
+    <h2>Pruebas con Postman</h2>
+    <hr>
+    <h4 style="color: rgb(255, 145, 0); text-align:center">Al hacer click en "Probar", se te pedirá permiso para
+        copiar el código automáticamente y
+        abrir Postman de
+        manera automática para que pegues el código y hagas la consulta!</h4>
+    <hr>
+    <br>
+    <div>
+        <p>**GET**: Obtener productos con un límite de 4 y ordenados de manera ascendente:</p>
+        <p>http://localhost:8080/api/products?limit=4&sort=asc</p>
+        <button class="pointer"
+            onclick="copyToClipboard('http://localhost:8080/api/products?limit=4&sort=asc')">PROBAR</button>
+    </div>
+    <br>
+    <div>
+        <p>**GET**: Obtener productos de la segunda página filtrados por categoría "Flying V":</p>
+        <p> http://localhost:8080/api/products?query=Flying </p>
+        <button class="pointer"
+            onclick="copyToClipboard('http://localhost:8080/api/products?query=Flying')">PROBAR</button>
+    </div>
+    <br>
+    <div>
+        <p>**GET**: Obtener un producto con un ID específico (por ejemplo, 66ca79275b2d4cd1e296903e):</p>
+        <p>http://localhost:8080/api/products/66ca79275b2d4cd1e296903e</p>
+        <button class="pointer"
+            onclick="copyToClipboard('http://localhost:8080/api/products/66ca79275b2d4cd1e296903e')">PROBAR</button>
+    </div>
+
+    <script>
+        function copyToClipboard(url) {
+            if (confirm("Estás a punto de copiar la URL de la consulta al portapapeles. ¿Desea continuar?")) {
+                navigator.clipboard.writeText(url).then(() => {
+                    alert(`La URL ha sido copiada al portapapeles.
+
+Ahora se abrirá Postman, recuerda el tipo de petición, pega y clickea 'SEND'`);
+
+                    // Open Postman
+                    window.location.href = 'postman://';
+                }).catch(err => {
+                    alert("Error al copiar al portapapeles: " + err);
+                });
+            }
+        }
+    </script>
+
+    <script>
+        function toggleOptions(id) {
+            const element = document.getElementById(id);
+            if (element.style.display === "none" || element.style.display === "") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
+
+</div>
+</body>
+
+</html>

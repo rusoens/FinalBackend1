@@ -1,0 +1,492 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #757474;
+}
+
+@font-face {
+    font-family: 'Smile Kinds';
+    src: url('/fonts/SMILE KINDS.woff') format('opentype');
+}
+
+.tipografia {
+    font-family: 'Smile Kinds';
+    color: red;
+    font-size: 53px;
+    text-shadow: 2px 1px white;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.product-id {
+    color: #888888;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-category {
+    color: #555555;
+    margin-bottom: 20px;
+}
+
+.add-to-cart-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.add-to-cart-button:hover {
+    background-color: #45a049;
+}
+
+.pagination {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.pagination-link {
+    margin: 0 10px;
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.pagination-link:hover {
+    text-decoration: underline;
+}
+
+.pagination-info {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1em;
+    color: #333333;
+}
+
+.productImage {
+    width: 50%;
+}
+
+.prodList {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.categorySte {
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+/* Contenedor para centrar los enlaces */
+.pagination-container {
+    display: flex;
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    z-index: 1000;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+
+.textPag {
+    margin-left: 11px;
+    margin-top: -17px;
+    font-weight: bold;
+}
+
+/* Estilos para el enlace "Siguiente" */
+.next-page,
+.prev-page {
+    color: rgb(255, 255, 255);
+    background-color: #df0000;
+    /* Color de fondo del botón */
+    padding: 10px 20px;
+    /* Espaciado interno */
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    /* Bordes redondeados */
+    margin: 0 10px;
+    /* Espaciado entre los botones */
+    transition: background-color 0.3s;
+    /* Suavizado para el hover */
+    box-shadow: 0px 0px 5px 4px rgb(255, 254, 254);
+    /* Sombra blanca */
+    margin-bottom: 1rem;
+}
+
+/* Efecto hover */
+.next-page:hover,
+.prev-page:hover {
+    background-color: #6d0909;
+    /* Cambiar color de fondo al pasar el cursor */
+    text-decoration: none;
+    /* Asegura que no haya subrayado en el hover */
+    box-shadow: 0px 0px 4px 7px rgb(255, 254, 254);
+}
+
+#add2Cart {
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 12px;
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: white;
+}
+
+#add2Cart:hover {
+    background-color: #6d0909;
+}
+
+
+
+.guide {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #000000e3;
+    text-align: left;
+    margin-top: 5rem;
+    margin-right: 10%;
+    margin-left: 10%;
+    text-decoration: none;
+}
+
+.guide a {
+    color: #6d0909;
+    background-color: white;
+    text-decoration: none;
+    /* Elimina el subrayado de los enlaces */
+}
+
+.guide h2 {
+    margin-top: 0;
+}
+
+.guide p {
+    margin: 10px 0;
+}
+
+.guide ul {
+    list-style-type: disc;
+    margin: 10px 0 10px 20px;
+}
+
+.guide ul li {
+    margin: 5px 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background-color: darkgray;
+    text-align: center;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.prodList {
+    background-color: #00000063;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+    border-radius: 2rem;
+}
+
+/*--------------------- ESTILOS CARTS.HANDLEBARS-------------------*/
+/* Estilos generales */
+.heading0 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.carts-container0 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.cart-item0 {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #00000088;
+}
+
+.cart-id0 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.total-quantity0 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.products-list0 {
+    margin-top: 10px;
+}
+
+.product-item0 {
+    border-top: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.product-id0,
+.product-title0,
+.product-price0,
+.product-quantity0 {
+    margin: 5px 0;
+}
+
+.no-carts0 {
+    font-size: 1.2em;
+    text-align: center;
+    color: #888;
+}
+
+.subtitulo0 {
+    color: #de4400;
+    text-shadow: -2px 2px 0px #000000;
+    font-size: 20px;
+}
+
+.remove0,
+.remove0 a {
+    text-decoration: none;
+    /* Elimina el subrayado en los enlaces */
+    color: inherit;
+    /* Mantiene el color del texto de acuerdo con el elemento padre */
+}
+
+.remove0:hover {
+    color: red;
+}
+
+.btnBack2Carts {
+    text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+.product-item2 {
+    list-style-type: none;
+}
+
+.cartsDetails1 {
+    background-color: rgba(0, 0, 0, 0.322);
+    text-align: center;
+}
+
+/* ------------------------ */
+
+
+
+.button-container01 {
+    display: flex;
+    gap: 2rem;
+}
+
+.button-wrapper01 {
+    width: 150px; /* Fija el ancho para evitar movimiento */
+    text-align: center;
+    position: relative; /* Asegura la posición relativa para los menús desplegables */
+}
+
+.main-button01 {
+    padding: 6px 24px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #9f3802;
+    color: white;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.main-button01:hover {
+    background-color: #fd6a1a;
+}
+
+.options01 {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: -2px 0 0 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+}
+
+.options01 li {
+    margin: 0.5rem 0;
+}
+
+.options01 button {
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #741d1d;
+    color: white;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.options01 button:hover {
+    background-color: #e04a2b;
+}
+
+.memin01 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.button-wrapper01:hover .options01 {
+    display: block; /* Mostrar el menú al pasar el cursor sobre el contenedor del botón */
+}
+
+.btnbck {
+    margin-top: 3rem;
+    text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+.detail-products02 {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.songoro {
+    position: fixed; /* Mantiene el botón fijo en la pantalla */
+    top: 2rem; /* Espaciado desde la parte superior */
+    right: 2rem; /* Espaciado desde el lado derecho */
+    z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
+    box-shadow: 0px 0px 5px 4px rgb(255, 254, 254);
+    
+}
+
+.songoro:hover {
+    box-shadow: 0px 0px 5px 7px rgb(248, 179, 89);
+}
+
+.btnbck:focus, .btnbck:active {
+    outline: none; /* Elimina el contorno del enfoque */
+    box-shadow: none; /* Elimina la sombra de enfoque */
+}
+
+/* Estilos para el footer */
+.site-footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Negro semi-difuminado */
+    color: #fff;
+    /* Letras blancas */
+    margin-top: 3em;
+    margin-bottom: 1em;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    /* Línea blanca sutil en la parte superior */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    position: relative;
+    /* Posición relativa para los efectos de línea */
+    padding: 5px 0;
+}
+
+.footer-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+.footer-links a:hover {
+    text-decoration: none;
+    color: #f0f0f0;
+    /* Color de texto ligeramente más claro al pasar el ratón */
+}

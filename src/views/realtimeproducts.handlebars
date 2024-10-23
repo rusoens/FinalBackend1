@@ -1,0 +1,18 @@
+{{!-- No necesitas el DOCTYPE, html, head o body aquí --}}
+<h1 class="tipografia">Real-Time Products</h1>
+<a href="/" class="pointer songoro" id="add2Cart">Volver al Inicio</a>
+<div id="product-list"></div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+    const productList = document.getElementById('product-list');
+
+    socket.on('updateProducts', (products) => {
+        productList.innerHTML = products.map(product => 
+            `<div>${product.title} - ${product.price}</div>`
+        ).join('');
+    });
+
+    // Example of emitting an event
+    socket.emit('sortProducts', { sort: 'asc' });
+</script>
